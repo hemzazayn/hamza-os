@@ -1,6 +1,7 @@
 const button = document.getElementById('startButton');
 const dayDate = document.getElementById('todayDate');
 const message = document.getElementById('greetingMessage');
+const currentTime = document.getElementById('currentTime');
 
 const today = new Date();
 const currentHour = today.getHours();
@@ -18,3 +19,22 @@ button.addEventListener('click', function() {
         message.textContent = 'Good Evening Hamza 🌙';
     }
 });
+
+function updateTime() {
+
+    const now = new Date();
+
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    const formattedHours = hours.toString().padStart(2, "0");
+    const formattedMinutes = minutes.toString().padStart(2, "0");
+    const formattedSeconds = seconds.toString().padStart(2, "0");
+
+    currentTime.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+}
+
+updateTime();
+
+setInterval(updateTime, 1000);
