@@ -35,6 +35,23 @@ function updateTime() {
     currentTime.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
 }
 
+function updateGreeting() {
+    const now = new Date();
+    const currentHour = now.getHours();
+
+    if (currentHour >= 6 && currentHour < 12) {
+        message.textContent = 'Good Morning Hamza ☀️';
+    } 
+    else if (currentHour >= 12 && currentHour < 18) {
+        message.textContent = 'Good Afternoon Hamza 🌤️';
+    }
+    else {
+        message.textContent = 'Good Evening Hamza 🌙';
+    }
+}
+
 updateTime();
+updateGreeting();
 
 setInterval(updateTime, 1000);
+setInterval(updateGreeting, 60000);
